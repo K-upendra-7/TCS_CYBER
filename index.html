@@ -1,44 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Password Strength Analyzer</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>
+        Password Strength Analyzer
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
     <main class="container">
 
-        <!-- HEADER -->
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
+
         <header class="header">
 
-            <div class="security-icon">🔐</div>
+            <div class="security-icon">
+                🔐
+            </div>
 
             <div>
-                <h1>Password Strength Analyzer</h1>
+
+                <h1>
+                    Password Strength Analyzer
+                </h1>
 
                 <p class="subtitle">
-                    Analyze your password security and protect yourself from common attacks.
+                    Analyze your password security
+                    and protect yourself from
+                    common attacks.
                 </p>
+
             </div>
 
         </header>
 
 
-        <!-- CREDENTIAL INPUT -->
+
+        <!-- =================================================
+             CREDENTIAL INPUT
+             ================================================= -->
+
         <section class="credentials-card">
 
             <div class="section-title">
-                <span class="title-icon">◈</span>
-                <span>Enter Credentials</span>
+
+                <span class="title-icon">
+                    ◈
+                </span>
+
+                <span>
+                    Enter Credentials
+                </span>
+
             </div>
 
 
             <!-- USERNAME -->
+
             <div class="input-group">
 
                 <label for="username">
@@ -47,7 +84,9 @@
 
                 <div class="input-wrapper">
 
-                    <span class="input-icon">👤</span>
+                    <span class="input-icon">
+                        👤
+                    </span>
 
                     <input
                         type="text"
@@ -61,7 +100,9 @@
             </div>
 
 
+
             <!-- PASSWORD -->
+
             <div class="input-group">
 
                 <label for="password">
@@ -70,7 +111,9 @@
 
                 <div class="password-wrapper">
 
-                    <span class="input-icon">🔑</span>
+                    <span class="input-icon">
+                        🔑
+                    </span>
 
                     <input
                         type="password"
@@ -94,25 +137,47 @@
         </section>
 
 
-        <!-- STRENGTH -->
+
+        <!-- =================================================
+             PASSWORD STRENGTH
+             ================================================= -->
+
         <section class="strength-card">
+
 
             <div class="strength-top">
 
                 <div class="section-title">
-                    <span class="title-icon">◈</span>
-                    <span>Strength</span>
+
+                    <span class="title-icon">
+                        ◈
+                    </span>
+
+                    <span>
+                        Strength
+                    </span>
+
                 </div>
 
+
                 <div class="score">
+
                     Score:
-                    <span id="scoreText">0</span>/100
+
+                    <span id="scoreText">
+                        0
+                    </span>
+
+                    /100
+
                 </div>
 
             </div>
 
 
+
             <!-- STRENGTH BAR -->
+
             <div class="strength-bar">
 
                 <div
@@ -123,52 +188,132 @@
             </div>
 
 
+
+            <!-- STRENGTH LEVELS -->
+
             <div class="strength-levels">
 
-                <span>VERY WEAK</span>
-                <span>WEAK</span>
-                <span>MODERATE</span>
-                <span>STRONG</span>
-                <span>VERY STRONG</span>
+                <span>
+                    VERY WEAK
+                </span>
+
+                <span>
+                    WEAK
+                </span>
+
+                <span>
+                    MODERATE
+                </span>
+
+                <span>
+                    STRONG
+                </span>
+
+                <span>
+                    VERY STRONG
+                </span>
 
             </div>
 
 
+
+            <!-- CURRENT STRENGTH -->
+
             <div class="strength-result">
 
-                <span id="strengthText">—</span>
+                <span id="strengthText">
+                    —
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SECURITY STATISTICS
+                 ================================================= -->
+
+            <div class="security-stats">
+
+
+                <!-- ENTROPY -->
+
+                <div class="stat">
+
+                    <span class="stat-label">
+                        ENTROPY
+                    </span>
+
+                    <span id="entropyText">
+                        0 bits
+                    </span>
+
+                </div>
+
+
+
+                <!-- CRACK TIME -->
+
+                <div class="stat">
+
+                    <span class="stat-label">
+                        ESTIMATED CRACK TIME
+                    </span>
+
+                    <span id="crackTimeText">
+                        —
+                    </span>
+
+                </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- ANALYSIS + RECOMMENDATIONS -->
+
+        <!-- =================================================
+             ANALYSIS + RECOMMENDATIONS
+             ================================================= -->
+
         <div class="analysis-grid">
 
 
-            <!-- PASSWORD ANALYSIS -->
+            <!-- =================================================
+                 PASSWORD ANALYSIS
+                 ================================================= -->
+
             <section class="analysis-card">
+
 
                 <div class="section-title">
 
-                    <span class="title-icon">🛡</span>
+                    <span class="title-icon">
+                        🛡
+                    </span>
 
-                    <span>Password Analysis</span>
+                    <span>
+                        Password Analysis
+                    </span>
 
                 </div>
+
 
 
                 <div class="checks">
 
 
                     <!-- LENGTH -->
+
                     <div
                         class="check"
                         id="lengthCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             At least 12 characters
@@ -177,13 +322,17 @@
                     </div>
 
 
+
                     <!-- UPPERCASE -->
+
                     <div
                         class="check"
                         id="uppercaseCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             Contains uppercase letter
@@ -192,13 +341,17 @@
                     </div>
 
 
+
                     <!-- LOWERCASE -->
+
                     <div
                         class="check"
                         id="lowercaseCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             Contains lowercase letter
@@ -207,13 +360,17 @@
                     </div>
 
 
+
                     <!-- NUMBER -->
+
                     <div
                         class="check"
                         id="numberCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             Contains number
@@ -222,13 +379,17 @@
                     </div>
 
 
-                    <!-- SPECIAL -->
+
+                    <!-- SPECIAL CHARACTER -->
+
                     <div
                         class="check"
                         id="specialCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             Contains special character
@@ -237,13 +398,17 @@
                     </div>
 
 
-                    <!-- REPETITION -->
+
+                    <!-- REPEATED CHARACTERS -->
+
                     <div
                         class="check"
                         id="repeatCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             No excessive repeated characters
@@ -252,13 +417,17 @@
                     </div>
 
 
-                    <!-- SEQUENCE -->
+
+                    <!-- SEQUENCES -->
+
                     <div
                         class="check"
                         id="sequenceCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             No obvious sequences
@@ -267,13 +436,17 @@
                     </div>
 
 
+
                     <!-- USERNAME -->
+
                     <div
                         class="check"
                         id="usernameCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             Password does not contain username
@@ -282,13 +455,17 @@
                     </div>
 
 
+
                     <!-- COMMON PASSWORD -->
+
                     <div
                         class="check"
                         id="commonCheck"
                     >
 
-                        <span class="check-icon">○</span>
+                        <span class="check-icon">
+                            ○
+                        </span>
 
                         <span>
                             Not a commonly used password
@@ -302,16 +479,26 @@
             </section>
 
 
-            <!-- RECOMMENDATIONS -->
+
+            <!-- =================================================
+                 RECOMMENDATIONS
+                 ================================================= -->
+
             <section class="recommendations-card">
+
 
                 <div class="section-title">
 
-                    <span class="title-icon">💡</span>
+                    <span class="title-icon">
+                        💡
+                    </span>
 
-                    <span>Recommendations</span>
+                    <span>
+                        Recommendations
+                    </span>
 
                 </div>
+
 
 
                 <div
@@ -319,51 +506,78 @@
                     class="recommendation-box"
                 >
 
+
                     <div class="recommendation-shield">
                         🛡
                     </div>
+
 
                     <p>
                         Enter a password to receive
                         security recommendations.
                     </p>
 
+
                 </div>
 
             </section>
 
+
         </div>
 
 
-        <!-- GENERATOR -->
+
+        <!-- =================================================
+             PASSWORD GENERATOR
+             ================================================= -->
+
         <button
             id="generatePassword"
             class="generate-btn"
             type="button"
         >
 
-            <span>⚡</span>
+            <span>
+                ⚡
+            </span>
 
             Generate Strong Password
 
         </button>
 
 
-        <!-- FOOTER -->
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
         <footer>
 
-            <span>CYBER SECURITY TOOL</span>
+            <span>
+                CYBER SECURITY TOOL
+            </span>
 
-            <span>•</span>
+            <span>
+                •
+            </span>
 
-            <span>CLIENT-SIDE ANALYSIS</span>
+            <span>
+                CLIENT-SIDE ANALYSIS
+            </span>
 
         </footer>
+
 
     </main>
 
 
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
     <script src="script.js"></script>
 
 </body>
+
 </html>

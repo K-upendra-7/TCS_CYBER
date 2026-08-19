@@ -11,112 +11,357 @@
 
 <body>
 
-    <div class="container">
+    <main class="container">
 
-        <h1>🔐 Password Strength Analyzer</h1>
+        <!-- HEADER -->
+        <header class="header">
 
-        <p class="subtitle">
-            Check how resistant your password is to common guessing attacks.
-        </p>
+            <div class="security-icon">🔐</div>
 
-        <div class="password-section">
+            <div>
+                <h1>Password Strength Analyzer</h1>
 
-            <label for="password">Enter Password</label>
+                <p class="subtitle">
+                    Analyze your password security and protect yourself from common attacks.
+                </p>
+            </div>
 
-            <div class="password-input">
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Enter your password..."
-                    autocomplete="off"
+        </header>
+
+
+        <!-- CREDENTIAL INPUT -->
+        <section class="credentials-card">
+
+            <div class="section-title">
+                <span class="title-icon">◈</span>
+                <span>Enter Credentials</span>
+            </div>
+
+
+            <!-- USERNAME -->
+            <div class="input-group">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">👤</span>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter your username..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <span class="input-icon">🔑</span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        class="show-btn"
+                    >
+                        SHOW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STRENGTH -->
+        <section class="strength-card">
+
+            <div class="strength-top">
+
+                <div class="section-title">
+                    <span class="title-icon">◈</span>
+                    <span>Strength</span>
+                </div>
+
+                <div class="score">
+                    Score:
+                    <span id="scoreText">0</span>/100
+                </div>
+
+            </div>
+
+
+            <!-- STRENGTH BAR -->
+            <div class="strength-bar">
+
+                <div
+                    id="strengthProgress"
+                    class="strength-progress"
+                ></div>
+
+            </div>
+
+
+            <div class="strength-levels">
+
+                <span>VERY WEAK</span>
+                <span>WEAK</span>
+                <span>MODERATE</span>
+                <span>STRONG</span>
+                <span>VERY STRONG</span>
+
+            </div>
+
+
+            <div class="strength-result">
+
+                <span id="strengthText">—</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ANALYSIS + RECOMMENDATIONS -->
+        <div class="analysis-grid">
+
+
+            <!-- PASSWORD ANALYSIS -->
+            <section class="analysis-card">
+
+                <div class="section-title">
+
+                    <span class="title-icon">🛡</span>
+
+                    <span>Password Analysis</span>
+
+                </div>
+
+
+                <div class="checks">
+
+
+                    <!-- LENGTH -->
+                    <div
+                        class="check"
+                        id="lengthCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            At least 12 characters
+                        </span>
+
+                    </div>
+
+
+                    <!-- UPPERCASE -->
+                    <div
+                        class="check"
+                        id="uppercaseCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            Contains uppercase letter
+                        </span>
+
+                    </div>
+
+
+                    <!-- LOWERCASE -->
+                    <div
+                        class="check"
+                        id="lowercaseCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            Contains lowercase letter
+                        </span>
+
+                    </div>
+
+
+                    <!-- NUMBER -->
+                    <div
+                        class="check"
+                        id="numberCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            Contains number
+                        </span>
+
+                    </div>
+
+
+                    <!-- SPECIAL -->
+                    <div
+                        class="check"
+                        id="specialCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            Contains special character
+                        </span>
+
+                    </div>
+
+
+                    <!-- REPETITION -->
+                    <div
+                        class="check"
+                        id="repeatCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            No excessive repeated characters
+                        </span>
+
+                    </div>
+
+
+                    <!-- SEQUENCE -->
+                    <div
+                        class="check"
+                        id="sequenceCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            No obvious sequences
+                        </span>
+
+                    </div>
+
+
+                    <!-- USERNAME -->
+                    <div
+                        class="check"
+                        id="usernameCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            Password does not contain username
+                        </span>
+
+                    </div>
+
+
+                    <!-- COMMON PASSWORD -->
+                    <div
+                        class="check"
+                        id="commonCheck"
+                    >
+
+                        <span class="check-icon">○</span>
+
+                        <span>
+                            Not a commonly used password
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- RECOMMENDATIONS -->
+            <section class="recommendations-card">
+
+                <div class="section-title">
+
+                    <span class="title-icon">💡</span>
+
+                    <span>Recommendations</span>
+
+                </div>
+
+
+                <div
+                    id="recommendationBox"
+                    class="recommendation-box"
                 >
 
-                <button id="togglePassword">Show</button>
-            </div>
+                    <div class="recommendation-shield">
+                        🛡
+                    </div>
+
+                    <p>
+                        Enter a password to receive
+                        security recommendations.
+                    </p>
+
+                </div>
+
+            </section>
 
         </div>
 
-        <!-- Strength -->
-        <div class="strength-section">
 
-            <div class="strength-header">
-                <span>Strength</span>
-                <span id="strengthText">—</span>
-            </div>
+        <!-- GENERATOR -->
+        <button
+            id="generatePassword"
+            class="generate-btn"
+            type="button"
+        >
 
-            <div class="strength-bar">
-                <div id="strengthProgress"></div>
-            </div>
+            <span>⚡</span>
 
-            <p id="scoreText">Score: 0/100</p>
-
-        </div>
-
-        <!-- Password Checks -->
-        <div class="checks">
-
-            <h2>Password Analysis</h2>
-
-            <div class="check" id="lengthCheck">
-                <span>○</span>
-                <span>At least 12 characters</span>
-            </div>
-
-            <div class="check" id="uppercaseCheck">
-                <span>○</span>
-                <span>Contains uppercase letter</span>
-            </div>
-
-            <div class="check" id="lowercaseCheck">
-                <span>○</span>
-                <span>Contains lowercase letter</span>
-            </div>
-
-            <div class="check" id="numberCheck">
-                <span>○</span>
-                <span>Contains number</span>
-            </div>
-
-            <div class="check" id="specialCheck">
-                <span>○</span>
-                <span>Contains special character</span>
-            </div>
-
-            <div class="check" id="repeatCheck">
-                <span>○</span>
-                <span>No excessive repeated characters</span>
-            </div>
-
-            <div class="check" id="sequenceCheck">
-                <span>○</span>
-                <span>No obvious sequences</span>
-            </div>
-
-            <div class="check" id="commonCheck">
-                <span>○</span>
-                <span>Not a common password</span>
-            </div>
-
-        </div>
-
-        <!-- Suggestions -->
-        <div class="suggestions">
-
-            <h2>💡 Recommendations</h2>
-
-            <ul id="suggestionList">
-                <li>Enter a password to begin analysis.</li>
-            </ul>
-
-        </div>
-
-        <!-- Generate Password -->
-
-        <button id="generatePassword" class="generate-btn">
             Generate Strong Password
+
         </button>
 
-    </div>
+
+        <!-- FOOTER -->
+        <footer>
+
+            <span>CYBER SECURITY TOOL</span>
+
+            <span>•</span>
+
+            <span>CLIENT-SIDE ANALYSIS</span>
+
+        </footer>
+
+    </main>
+
 
     <script src="script.js"></script>
 

@@ -1,583 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Password Strength Analyzer
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enterprise Password Strength Analyzer & Vulnerability Diagnostics. Real-time client-side entropy, APSSA scoring, and personal-data similarity detection.">
+    <title>CyberGuard - Password Strength & Vulnerability Analyzer</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
-
 <body>
 
-    <main class="container">
-
+    <main class="app-container">
 
         <!-- =================================================
-             HEADER
+             TOP HEADER
              ================================================= -->
-
-        <header class="header">
-
-            <div class="security-icon">
-                🔐
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="brand-icon-wrapper" aria-hidden="true">
+                    🛡️
+                </div>
+                <div class="brand-titles">
+                    <h1>Password Security & Similarity Analyzer</h1>
+                    <p class="brand-subtitle">Adaptive scoring (APSSA), entropy calculation, and zero-knowledge personal similarity detection</p>
+                </div>
             </div>
-
-            <div>
-
-                <h1>
-                    Password Strength Analyzer
-                </h1>
-
-                <p class="subtitle">
-                    Analyze your password security
-                    and protect yourself from
-                    common attacks.
-                </p>
-
+            <div class="header-badge-group">
+                <span class="privacy-badge">
+                    <span class="pulse-dot"></span>
+                    100% Client-Side
+                </span>
             </div>
-
         </header>
 
-
+        <!-- =================================================
+             PRIVACY ASSURANCE BANNER
+             ================================================= -->
+        <div class="privacy-banner" role="note">
+            <span class="privacy-icon">🔒</span>
+            <span><strong>Zero-Knowledge Local Analysis:</strong> Passwords and personal information are processed strictly in your browser's temporary memory. Nothing is stored, logged, or transmitted over any network.</span>
+        </div>
 
         <!-- =================================================
-             CREDENTIAL INPUT
+             DASHBOARD TWO-COLUMN LAYOUT
              ================================================= -->
-
-        <section class="credentials-card">
-
-            <div class="section-title">
-
-                <span class="title-icon">
-                    ◈
-                </span>
-
-                <span>
-                    Enter Credentials
-                </span>
-
-            </div>
-
-
-            <!-- USERNAME -->
-
-            <div class="input-group">
-
-                <label for="username">
-                    Username
-                </label>
-
-                <div class="input-wrapper">
-
-                    <span class="input-icon">
-                        👤
-                    </span>
-
-                    <input
-                        type="text"
-                        id="username"
-                        placeholder="Enter your username..."
-                        autocomplete="off"
-                    >
-
-                </div>
-
-            </div>
-
-
-
-            <!-- PASSWORD -->
-
-            <div class="input-group">
-
-                <label for="password">
-                    Password
-                </label>
-
-                <div class="password-wrapper">
-
-                    <span class="input-icon">
-                        🔑
-                    </span>
-
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter your password..."
-                        autocomplete="off"
-                    >
-
-                    <button
-                        type="button"
-                        id="togglePassword"
-                        class="show-btn"
-                    >
-                        SHOW
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             PASSWORD STRENGTH
-             ================================================= -->
-
-        <section class="strength-card">
-
-
-            <div class="strength-top">
-
-                <div class="section-title">
-
-                    <span class="title-icon">
-                        ◈
-                    </span>
-
-                    <span>
-                        Strength
-                    </span>
-
-                </div>
-
-
-                <div class="score">
-
-                    Score:
-
-                    <span id="scoreText">
-                        0
-                    </span>
-
-                    /100
-
-                </div>
-
-            </div>
-
-
-
-            <!-- STRENGTH BAR -->
-
-            <div class="strength-bar">
-
-                <div
-                    id="strengthProgress"
-                    class="strength-progress"
-                ></div>
-
-            </div>
-
-
-
-            <!-- STRENGTH LEVELS -->
-
-            <div class="strength-levels">
-
-                <span>
-                    VERY WEAK
-                </span>
-
-                <span>
-                    WEAK
-                </span>
-
-                <span>
-                    MODERATE
-                </span>
-
-                <span>
-                    STRONG
-                </span>
-
-                <span>
-                    VERY STRONG
-                </span>
-
-            </div>
-
-
-
-            <!-- CURRENT STRENGTH -->
-
-            <div class="strength-result">
-
-                <span id="strengthText">
-                    —
-                </span>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 SECURITY STATISTICS
-                 ================================================= -->
-
-            <div class="security-stats">
-
-
-                <!-- ENTROPY -->
-
-                <div class="stat">
-
-                    <span class="stat-label">
-                        ENTROPY
-                    </span>
-
-                    <span id="entropyText">
-                        0 bits
-                    </span>
-
-                </div>
-
-
-
-                <!-- CRACK TIME -->
-
-                <div class="stat">
-
-                    <span class="stat-label">
-                        ESTIMATED CRACK TIME
-                    </span>
-
-                    <span id="crackTimeText">
-                        —
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             ANALYSIS + RECOMMENDATIONS
-             ================================================= -->
-
-        <div class="analysis-grid">
-
-
-            <!-- =================================================
-                 PASSWORD ANALYSIS
-                 ================================================= -->
-
-            <section class="analysis-card">
-
-
-                <div class="section-title">
-
-                    <span class="title-icon">
-                        🛡
-                    </span>
-
-                    <span>
-                        Password Analysis
-                    </span>
-
-                </div>
-
-
-
-                <div class="checks">
-
-
-                    <!-- LENGTH -->
-
-                    <div
-                        class="check"
-                        id="lengthCheck"
-                    >
-
-                        <span class="check-icon">
-                            ○
-                        </span>
-
-                        <span>
-                            At least 12 characters
-                        </span>
-
+        <div class="dashboard-layout">
+
+            <!-- LEFT COLUMN: INPUTS & PERSONAL DETAILS -->
+            <div class="column">
+
+                <!-- PASSWORD INPUT CONSOLE -->
+                <section class="card" aria-labelledby="passwordSectionTitle">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">🔑</span>
+                            <h2 id="passwordSectionTitle" class="card-title">Password Console</h2>
+                        </div>
+                        <span class="card-badge badge-active">Real-time Analysis</span>
                     </div>
 
+                    <div class="password-box-wrapper">
+                        <div class="password-input-row">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="password-input" 
+                                placeholder="Enter or paste a password to inspect..." 
+                                autocomplete="off"
+                                spellcheck="false"
+                                aria-label="Password to analyze"
+                            >
+                            <div class="password-actions">
+                                <button type="button" id="togglePassword" class="btn-icon" title="Toggle visibility" aria-label="Show password">SHOW</button>
+                                <button type="button" id="copyPassword" class="btn-icon" title="Copy to clipboard" aria-label="Copy password">📋</button>
+                                <button type="button" id="clearPassword" class="btn-icon" title="Clear input" aria-label="Clear password">✕</button>
+                            </div>
+                        </div>
 
+                        <!-- STRENGTH METER -->
+                        <div class="strength-summary-row">
+                            <span id="strengthText" class="strength-status-badge">WAITING FOR INPUT</span>
+                            <div class="score-display">
+                                Score: <span id="scoreText" class="score-number">0</span> / 100
+                            </div>
+                        </div>
 
-                    <!-- UPPERCASE -->
+                        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                            <div id="strengthProgress" class="progress-bar"></div>
+                        </div>
 
-                    <div
-                        class="check"
-                        id="uppercaseCheck"
-                    >
+                        <!-- ENTROPY & CRACK TIME -->
+                        <div class="metrics-grid">
+                            <div class="metric-pill">
+                                <span class="metric-label">Information Entropy</span>
+                                <span id="entropyText" class="metric-value">0 bits</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-label">Estimated Crack Time</span>
+                                <span id="crackTimeText" class="metric-value">—</span>
+                            </div>
+                        </div>
 
-                        <span class="check-icon">
-                            ○
-                        </span>
+                        <!-- PASSWORD GENERATOR TRIGGER -->
+                        <button type="button" id="generatePassword" class="btn-primary">
+                            <span>⚡</span> Generate Secure Password
+                        </button>
+                    </div>
+                </section>
 
-                        <span>
-                            Contains uppercase letter
-                        </span>
-
+                <!-- OPTIONAL PERSONAL INFORMATION (SIMILARITY DETECTION) -->
+                <section class="card" aria-labelledby="personalSectionTitle">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">👤</span>
+                            <h2 id="personalSectionTitle" class="card-title">Personal Identifiers (Optional)</h2>
+                        </div>
+                        <span id="personalDataCountBadge" class="card-badge badge-muted">0 Details (Optional)</span>
                     </div>
 
-
-
-                    <!-- LOWERCASE -->
-
-                    <div
-                        class="check"
-                        id="lowercaseCheck"
-                    >
-
-                        <span class="check-icon">
-                            ○
-                        </span>
-
-                        <span>
-                            Contains lowercase letter
-                        </span>
-
-                    </div>
-
-
-
-                    <!-- NUMBER -->
-
-                    <div
-                        class="check"
-                        id="numberCheck"
-                    >
-
-                        <span class="check-icon">
-                            ○
-                        </span>
-
-                        <span>
-                            Contains number
-                        </span>
-
-                    </div>
-
-
-
-                    <!-- SPECIAL CHARACTER -->
-
-                    <div
-                        class="check"
-                        id="specialCheck"
-                    >
-
-                        <span class="check-icon">
-                            ○
-                        </span>
-
-                        <span>
-                            Contains special character
-                        </span>
-
-                    </div>
-
-
-
-                    <!-- REPEATED CHARACTERS -->
-
-                    <div
-                        class="check"
-                        id="repeatCheck"
-                    >
-
-                        <span class="check-icon">
-                            ○
-                        </span>
-
-                        <span>
-                            No excessive repeated characters
-                        </span>
-
-                    </div>
-
-
-
-                    <!-- SEQUENCES -->
-
-                    <div
-                        class="check"
-                        id="sequenceCheck"
-                    >
-
-                        <span class="check-icon">
-                            ○
-                        </span>
-
-                        <span>
-                            No obvious sequences
-                        </span>
-
-                    </div>
-
-
-
-                    <!-- USERNAME -->
-
-                    <div
-                        class="check"
-                        id="usernameCheck"
-                    >
-
-                        <span class="check-icon">
-                            ○
-                        </span>
-
-                        <span>
-                            Password does not contain username
-                        </span>
-
-                    </div>
-
-
-
-                    <!-- COMMON PASSWORD -->
-
-                    <div
-                        class="check"
-                        id="commonCheck"
-                    >
-
-                        <span class="check-icon">
-                            ○
-                        </span>
-
-                        <span>
-                            Not a commonly used password
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 RECOMMENDATIONS
-                 ================================================= -->
-
-            <section class="recommendations-card">
-
-
-                <div class="section-title">
-
-                    <span class="title-icon">
-                        💡
-                    </span>
-
-                    <span>
-                        Recommendations
-                    </span>
-
-                </div>
-
-
-
-                <div
-                    id="recommendationBox"
-                    class="recommendation-box"
-                >
-
-
-                    <div class="recommendation-shield">
-                        🛡
-                    </div>
-
-
-                    <p>
-                        Enter a password to receive
-                        security recommendations.
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+                        Attackers frequently use personal context in targeted dictionary attacks. Provide common details below to detect exact, reversed, leetspeak, or combination matches.
                     </p>
 
+                    <form id="personalInfoForm" class="form-grid" onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">
+                                Full Name
+                                <span class="label-hint">e.g. Kolla Upendra</span>
+                            </label>
+                            <input type="text" id="fullName" class="input-field" placeholder="Full name or name parts" autocomplete="off">
+                        </div>
 
-                </div>
+                        <div class="form-group">
+                            <label for="nickname" class="form-label">
+                                Nickname
+                                <span class="label-hint">e.g. Upen</span>
+                            </label>
+                            <input type="text" id="nickname" class="input-field" placeholder="Familiar nickname" autocomplete="off">
+                        </div>
 
-            </section>
+                        <div class="form-group">
+                            <label for="birthDate" class="form-label">
+                                Birth Year / Date
+                                <span class="label-hint">e.g. 2004 or 19/08/2004</span>
+                            </label>
+                            <input type="text" id="birthDate" class="input-field" placeholder="Year or date of birth" autocomplete="off">
+                        </div>
 
+                        <div class="form-group">
+                            <label for="username" class="form-label">
+                                Username
+                                <span class="label-hint">e.g. upendra7</span>
+                            </label>
+                            <input type="text" id="username" class="input-field" placeholder="Account username / handle" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                Email Address
+                                <span class="label-hint">e.g. user@example.com</span>
+                            </label>
+                            <input type="email" id="email" class="input-field" placeholder="Email username & domain" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">
+                                Phone Number
+                                <span class="label-hint">e.g. +91 98765 43210</span>
+                            </label>
+                            <input type="tel" id="phone" class="input-field" placeholder="Phone or last 4 digits" autocomplete="off">
+                        </div>
+
+                        <div class="form-group form-grid-full">
+                            <label for="keywords" class="form-label">
+                                Custom Keywords / Pet / Partner
+                                <span class="label-hint">Comma-separated</span>
+                            </label>
+                            <input type="text" id="keywords" class="input-field" placeholder="e.g. shadow, max, hyderabad, cricket" autocomplete="off">
+                        </div>
+                    </form>
+                </section>
+
+            </div>
+
+            <!-- RIGHT COLUMN: ANALYSIS, CHECKS, DIAGNOSTICS & RECOMMENDATIONS -->
+            <div class="column">
+
+                <!-- SECURITY CRITERIA CHECKLIST -->
+                <section class="card" aria-labelledby="checklistSectionTitle">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">📋</span>
+                            <h2 id="checklistSectionTitle" class="card-title">Security Checklist</h2>
+                        </div>
+                        <span class="card-badge badge-muted">Criteria</span>
+                    </div>
+
+                    <div class="checklist-grid">
+                        <div id="lengthCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>At least 12 characters</span>
+                        </div>
+                        <div id="uppercaseCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>Contains uppercase (A-Z)</span>
+                        </div>
+                        <div id="lowercaseCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>Contains lowercase (a-z)</span>
+                        </div>
+                        <div id="numberCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>Contains number (0-9)</span>
+                        </div>
+                        <div id="specialCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>Contains symbol (!@#$)</span>
+                        </div>
+                        <div id="repeatCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>No excessive repeats</span>
+                        </div>
+                        <div id="sequenceCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>No character sequences</span>
+                        </div>
+                        <div id="keyboardCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>No keyboard patterns</span>
+                        </div>
+                        <div id="commonCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>Not a common password</span>
+                        </div>
+                        <div id="personalDataCheck" class="check-item">
+                            <span class="check-status-icon">○</span>
+                            <span>No personal data similarity</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PERSONAL SIMILARITY ALERT CARD (SHOWN WHEN DETECTED) -->
+                <section id="similarityCard" class="card similarity-card" style="display: none;" aria-labelledby="similaritySectionTitle">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon" style="color: var(--color-warning);">⚠️</span>
+                            <h2 id="similaritySectionTitle" class="card-title">Personal Data Match Detected</h2>
+                        </div>
+                        <span id="similaritySummary" class="card-badge badge-warning">High Risk</span>
+                    </div>
+                    <div id="similarityList" class="similarity-list"></div>
+                </section>
+
+                <!-- TECHNICAL DIAGNOSTICS & FINDINGS -->
+                <section class="card" aria-labelledby="findingsSectionTitle">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">🔍</span>
+                            <h2 id="findingsSectionTitle" class="card-title">Score Rationale & Findings</h2>
+                        </div>
+                        <span class="card-badge badge-muted">Diagnostics</span>
+                    </div>
+                    <div id="findingsBox">
+                        <div class="empty-state-notice">
+                            <span class="empty-icon">🛡️</span>
+                            <p>Enter a password to run the real-time security diagnostics.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- HARDENING RECOMMENDATIONS -->
+                <section class="card" aria-labelledby="recommendationsSectionTitle">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">💡</span>
+                            <h2 id="recommendationsSectionTitle" class="card-title">Hardening Recommendations</h2>
+                        </div>
+                        <span class="card-badge badge-muted">Best Practices</span>
+                    </div>
+                    <div id="recommendationsBox">
+                        <div class="empty-state-notice">
+                            <span class="empty-icon">💡</span>
+                            <p>Security recommendations will appear here based on your password strength.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
 
         </div>
 
-
-
         <!-- =================================================
-             PASSWORD GENERATOR
+             PASSWORD GENERATOR MODAL DIALOG
              ================================================= -->
+        <div id="generatorModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="genModalTitle">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h3 id="genModalTitle" class="modal-title">Secure Password Generator</h3>
+                    <button type="button" id="closeGeneratorBtn" class="modal-close-btn" aria-label="Close dialog">✕</button>
+                </div>
 
-        <button
-            id="generatePassword"
-            class="generate-btn"
-            type="button"
-        >
+                <div class="preview-box">
+                    <input type="text" id="previewGeneratedText" class="preview-input" readonly spellcheck="false">
+                    <button type="button" id="regenBtn" class="btn-icon" title="Regenerate password">🔄</button>
+                </div>
 
-            <span>
-                ⚡
-            </span>
+                <div class="generator-controls">
+                    <div class="slider-row">
+                        <div class="slider-label-row">
+                            <span>Password Length</span>
+                            <strong><span id="genLengthVal">18</span> chars</strong>
+                        </div>
+                        <input type="range" id="genLengthSlider" class="slider-input" min="8" max="64" value="18">
+                    </div>
 
-            Generate Strong Password
+                    <div class="options-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="genUpper" checked>
+                            Uppercase (A-Z)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="genLower" checked>
+                            Lowercase (a-z)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="genNum" checked>
+                            Numbers (0-9)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="genSym" checked>
+                            Symbols (!@#$)
+                        </label>
+                    </div>
 
-        </button>
+                    <label class="checkbox-label" style="margin-top: 4px;">
+                        <input type="checkbox" id="genAvoidAmbiguous">
+                        Avoid ambiguous characters (e.g. 0, O, l, 1, I)
+                    </label>
+                </div>
 
-
+                <div class="modal-actions">
+                    <button type="button" id="applyGeneratedBtn" class="btn-primary">Apply to Analyzer</button>
+                </div>
+            </div>
+        </div>
 
         <!-- =================================================
              FOOTER
              ================================================= -->
-
-        <footer>
-
-            <span>
-                CYBER SECURITY TOOL
-            </span>
-
-            <span>
-                •
-            </span>
-
-            <span>
-                CLIENT-SIDE ANALYSIS
-            </span>
-
+        <footer class="app-footer">
+            <span>Enterprise Cybersecurity Analysis Console &bull; APSSA Algorithm</span>
+            <div class="footer-tags">
+                <span>Client-Side Only</span>
+                <span>Zero-Knowledge</span>
+                <span>W3C Accessible</span>
+            </div>
         </footer>
-
 
     </main>
 
-
-
     <!-- =====================================================
-         JAVASCRIPT
+         MODULAR APPLICATION SCRIPTS
          ===================================================== -->
-
-    <script src="script.js"></script>
+    <script type="module" src="js/app.js"></script>
 
 </body>
-
 </html>

@@ -1217,3 +1217,61 @@ footer {
     }
 
 }
+/* =========================================================
+   SECURITY STATISTICS
+   ========================================================= */
+
+.security-stats {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.stat {
+    padding: 15px;
+
+    background: rgba(0, 20, 38, 0.7);
+
+    border: 1px solid rgba(0, 191, 255, 0.2);
+
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #6f8da2;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+.stat span:last-child {
+    color: #19d9ff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 15px;
+
+    text-shadow:
+        0 0 8px rgba(0, 191, 255, 0.4);
+}
+
+@media (max-width: 550px) {
+
+    .security-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
